@@ -1,4 +1,4 @@
-package glureau.geno.ui.shared
+package glureau.rickcompose.ui.shared
 
 
 import androidx.compose.foundation.Image

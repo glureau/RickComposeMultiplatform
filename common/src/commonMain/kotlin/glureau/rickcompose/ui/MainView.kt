@@ -1,4 +1,4 @@
-package glureau.geno.ui
+package glureau.rickcompose.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -6,8 +6,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import glureau.geno.GetCharactersQuery
-import glureau.geno.MortyRepository
+import glureau.rickcompose.data.MortyRepository
+import rickcompose.GetCharactersQuery
 
 @Composable
 fun MainView() {

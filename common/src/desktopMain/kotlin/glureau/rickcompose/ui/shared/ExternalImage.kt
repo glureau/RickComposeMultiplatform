@@ -1,4 +1,4 @@
-package glureau.geno.ui.shared
+package glureau.rickcompose.ui.shared
 
 
 import androidx.compose.foundation.layout.Arrangement
@@ -63,7 +63,6 @@ actual fun ExternalImage(client: HttpClient, modifier: Modifier, url: String?, c
         }
         else -> {
             imageBitmap?.let { bitmap ->
-
                 ComposeImage(
                     bitmap = bitmap,
                     contentDescription = "",

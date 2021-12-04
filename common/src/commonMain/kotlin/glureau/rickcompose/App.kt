@@ -1,6 +1,8 @@
+package glureau.rickcompose
+
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import glureau.geno.ui.MainView
+import glureau.rickcompose.ui.MainView
 import io.ktor.client.*
 
 val client = HttpClient()

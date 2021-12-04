@@ -1,5 +1,6 @@
-package glureau.geno.ui
+package glureau.rickcompose.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -10,9 +11,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import client
-import glureau.geno.fragment.CharacterDetail
-import glureau.geno.ui.shared.ExternalImage
+import glureau.rickcompose.client
+import glureau.rickcompose.ui.shared.ExternalImage
+import rickcompose.fragment.CharacterDetail
 
 @Composable
 fun CharacterView(character: CharacterDetail, characterSelected: (network: CharacterDetail) -> Unit) {
