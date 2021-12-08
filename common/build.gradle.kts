@@ -1,5 +1,6 @@
 import org.jetbrains.compose.compose
 
+
 plugins {
     id("com.android.library")
     kotlin("multiplatform")
@@ -10,11 +11,6 @@ plugins {
 kotlin {
     android()
     jvm("desktop")
-    /* soon ... maybe
-    js(IR) {
-        browser()
-        binaries.executable()
-    } */
 
     sourceSets {
         val commonMain by getting {
@@ -30,26 +26,20 @@ kotlin {
                 implementation("io.ktor:ktor-client-core:1.6.5")
                 // For some reasons, CIO 1.6.5 fail to download full image (EOFException) on basic/default configuration.
                 implementation("io.ktor:ktor-client-java:1.6.5")
-                //implementation("io.ktor:ktor-glureau.rickcompose.getClient-cio:1.6.5")
+                //implementation("io.ktor:ktor-client-cio:1.6.5")
 
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC")
+                implementation("io.github.kuuuurt:multiplatform-paging:0.4.5")
+                //implementation("androidx.paging:paging-common:3.1.0")
             }
         }
-        /*
-         soon ... maybe :)
-        val jsMain by getting {
-            kotlin.srcDir("src/main/kotlin")
-            resources.srcDir("src/main/resources")
-
-            dependencies {
-                implementation(compose.web.core)
-                implementation(compose.runtime)
-            }
-        }*/
         val androidMain by getting {
             dependencies {
                 api("androidx.appcompat:appcompat:1.4.0")
                 api("androidx.core:core-ktx:1.7.0")
                 implementation("io.coil-kt:coil-compose:1.4.0")
+                implementation("androidx.navigation:navigation-compose:2.4.0-beta02")
+                implementation("androidx.paging:paging-compose:1.0.0-alpha14")
             }
         }
 
