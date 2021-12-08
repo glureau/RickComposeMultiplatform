@@ -69,7 +69,7 @@ kotlin {
 }
 
 apollo {
-    //schemaFile.set(File("$rootDir/common/src/commonMain/graphql/glureau/geno/schema.graphqls"))
+    //schemaFile.set(File("$rootDir/common/src/commonMain/graphql/glureau/rickcompose/schema.graphqls"))
     packageName.set("rickcompose")
 }
 
