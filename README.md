@@ -1,8 +1,14 @@
-Compose Multiplatform Application
+# Rick&Morty with Compose Multiplatform (Android/Desktop)
 
-**Desktop**
-- `./gradlew run` - run application
-- `./gradlew package` - package native distribution into `build/compose/binaries`
+A copycat of https://github.com/joreilly/MortyComposeKMM to support Android & JVM with Jetpack Compose Multiplatform.
 
-**Android**
-- `./gradlew installDebug` - install Android application on an Android device (on a real device or on an emulator)
+![](screenshots/rick-compose.png)
+
+Big thanks to [@joreilly](https://github.com/joreilly) for all the amazing open source projects, articles and talks!
+
+### Some technical notes
+
+- paging is a bit laborious in desktop
+- image loading on desktop is not cached
+- UI has been split by platform, due to navigation being android only for now
+
