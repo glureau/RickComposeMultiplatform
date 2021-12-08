@@ -1,4 +1,4 @@
-package dev.johnoreilly.mortycomposekmm.ui.characters
+package glureau.rickcompose.ui.characters
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn

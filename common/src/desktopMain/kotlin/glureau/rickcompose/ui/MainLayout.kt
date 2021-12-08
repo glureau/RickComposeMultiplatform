@@ -3,7 +3,7 @@ package glureau.rickcompose.ui
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import dev.johnoreilly.mortycomposekmm.ui.characters.CharactersListView
+import glureau.rickcompose.ui.characters.CharactersListView
 import glureau.rickcompose.data.MortyRepository
 
 

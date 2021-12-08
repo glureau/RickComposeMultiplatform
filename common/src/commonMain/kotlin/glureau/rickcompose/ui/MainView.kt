@@ -3,9 +3,6 @@ package glureau.rickcompose.ui
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
@@ -14,10 +11,6 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import dev.johnoreilly.mortycomposekmm.ui.characters.CharacterDetailView
-import dev.johnoreilly.mortycomposekmm.ui.characters.CharactersListView
-import dev.johnoreilly.mortycomposekmm.ui.episodes.EpisodeDetailView
-import dev.johnoreilly.mortycomposekmm.ui.locations.LocationDetailView
 import glureau.rickcompose.data.MortyRepository
 import rickcompose.GetCharactersQuery
 

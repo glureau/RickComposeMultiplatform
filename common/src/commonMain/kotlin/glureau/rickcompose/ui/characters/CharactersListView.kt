@@ -1,13 +1,13 @@
-package dev.johnoreilly.mortycomposekmm.ui.characters
+package glureau.rickcompose.ui.characters
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import collectAsLazyPagingItems
 import glureau.rickcompose.data.MortyRepository
-import items
+import glureau.rickcompose.paging.collectAsLazyPagingItems
+import glureau.rickcompose.paging.lazyItems
 import rickcompose.fragment.CharacterDetail
 
 
@@ -17,7 +17,7 @@ fun CharactersListView(
     bottomBar: @Composable () -> Unit,
     characterSelected: (character: CharacterDetail) -> Unit
 ) {
-    val lazyCharacterList = repository.characterPagingData.collectAsLazyPagingItems<CharacterDetail>()
+    val lazyCharacterList = repository.characterPagingData.collectAsLazyPagingItems()
 
     repository.characterPagingData
 
@@ -27,7 +27,7 @@ fun CharactersListView(
     )
     {
         LazyColumn(contentPadding = it) {
-            items(lazyCharacterList) { character ->
+            lazyItems(lazyCharacterList) { character ->
                 CharactersListRowView(character!!, characterSelected)
             }
         }

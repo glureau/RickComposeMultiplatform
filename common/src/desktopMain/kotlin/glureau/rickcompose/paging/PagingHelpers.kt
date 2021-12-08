@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package glureau.rickcompose.paging
 
 import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyListScope
@@ -40,7 +41,7 @@ import kotlinx.coroutines.flow.collectLatest
 
 
 @Composable
-fun <T : Any> Flow<PagingData<T>>.collectAsLazyPagingItems(): LazyPagingItems<T> {
+actual fun <T : Any> Flow<PagingData<T>>.collectAsLazyPagingItems(): LazyPagingItems<T> {
     val lazyPagingItems = remember(this) { LazyPagingItems(this) }
 
     LaunchedEffect(lazyPagingItems) { lazyPagingItems.collectPagingData() }
@@ -50,11 +51,12 @@ fun <T : Any> Flow<PagingData<T>>.collectAsLazyPagingItems(): LazyPagingItems<T>
 }
 
 
-fun <T : Any> LazyListScope.items(
+actual fun <T : Any> LazyListScope.lazyItems(
     items: LazyPagingItems<T>,
-    key: ((item: T) -> Any)? = null,
+    //key: ((item: T) -> Any)?,
     itemContent: @Composable LazyItemScope.(value: T?) -> Unit
 ) {
+    val key: ((item: T) -> Any)? = null // patch build issue, should be reverted if used...
     items(
         count = items.itemCount,
         key =
@@ -71,7 +73,7 @@ fun <T : Any> LazyListScope.items(
     ) { index -> itemContent(items[index]) }
 }
 
-class LazyPagingItems<T : Any>
+actual class LazyPagingItems<T : Any>
 internal constructor(
     /** the [Flow] object which contains a stream of [PagingData] elements. */
     private val flow: Flow<PagingData<T>>

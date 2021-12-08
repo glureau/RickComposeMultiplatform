@@ -15,7 +15,7 @@ import rickcompose.fragment.LocationDetail
 
 class MortyRepository(clientScope: CoroutineScope) {
 
-    val characterPager = Pager(
+    val characterPagingData = Pager(
         clientScope = clientScope,
         config = PagingConfig(
             pageSize = 20,
@@ -23,21 +23,46 @@ class MortyRepository(clientScope: CoroutineScope) {
         ),
         initialKey = 1,
         getItems = { currentKey, size ->
-            println("GREG - getItems $currentKey $size")
-            val charactersResponse = getCharacters(currentKey)
-            println("GREG - getItems ${charactersResponse.data?.characters?.info?.count} ${charactersResponse.errors}")
-            val items = charactersResponse.dataOrThrow.characters.results.mapNotNull { it?.characterDetail }
+            val response = getCharacters(currentKey)
+            val items = response.dataOrThrow.characters.results.mapNotNull { it?.characterDetail }
             PagingResult(
                 items = items,
                 currentKey = currentKey,
                 prevKey = { null },
-                nextKey = { charactersResponse.dataOrThrow.characters.info.next }
+                nextKey = { response.dataOrThrow.characters.info.next }
             )
         }
-    )
+    ).pagingData.cachedIn(clientScope)
 
-    // TODO: get() ??
-    val characterPagingData = characterPager.pagingData.cachedIn(clientScope)
+    val episodes = Pager(clientScope = clientScope,
+        config = PagingConfig(pageSize = 20),
+        initialKey = 1,
+        getItems = { currentKey, size ->
+            val response = getEpisodes(currentKey)
+            val items = response.results.mapNotNull { it?.episodeDetail }
+            PagingResult(
+                items = items,
+                currentKey = currentKey,
+                prevKey = { null },
+                nextKey = { response.info.next }
+            )
+        }
+    ).pagingData.cachedIn(clientScope)
+
+    val locations = Pager(clientScope = clientScope,
+        config = PagingConfig(pageSize = 20),
+        initialKey = 1,
+        getItems = { currentKey, size ->
+            val response = getLocations(currentKey)
+            val items = response.results.mapNotNull { it?.locationDetail }
+            PagingResult(
+                items = items,
+                currentKey = currentKey,
+                prevKey = { null },
+                nextKey = { response.info.next }
+            )
+        }
+    ).pagingData.cachedIn(clientScope)
 
 
     private val apolloClient = ApolloClient.Builder().networkTransport(

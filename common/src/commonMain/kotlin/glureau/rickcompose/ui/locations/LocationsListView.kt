@@ -1,4 +1,4 @@
-/*package dev.johnoreilly.mortycomposekmm.ui.locations
+package glureau.rickcompose.ui.locations
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Scaffold
@@ -6,6 +6,8 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import glureau.rickcompose.data.MortyRepository
+import glureau.rickcompose.paging.collectAsLazyPagingItems
+import glureau.rickcompose.paging.lazyItems
 import rickcompose.fragment.LocationDetail
 
 
@@ -23,10 +25,11 @@ fun LocationsListView(
     )
     {
         LazyColumn(contentPadding = it) {
-            items(lazyLocationsList) { location ->
-                LocationsListRowView(location, locationSelected)
+            lazyItems(lazyLocationsList) { location ->
+                location?.let {
+                    LocationsListRowView(location, locationSelected)
+                }
             }
         }
     }
 }
-*/

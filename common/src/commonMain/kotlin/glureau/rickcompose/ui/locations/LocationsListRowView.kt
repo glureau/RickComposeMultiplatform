@@ -1,4 +1,4 @@
-package dev.johnoreilly.mortycomposekmm.ui.locations
+package glureau.rickcompose.ui.locations
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*

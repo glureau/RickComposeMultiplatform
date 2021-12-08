@@ -30,7 +30,7 @@ kotlin {
 
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC")
                 implementation("io.github.kuuuurt:multiplatform-paging:0.4.5")
-                //implementation("androidx.paging:paging-common:3.1.0")
+                //implementation("androidx.paging:paging-common-ktx:3.1.0")
             }
         }
         val androidMain by getting {
@@ -94,4 +94,7 @@ android {
             res.srcDirs("src/androidMain/res")
         }
     }
+}
+dependencies {
+    implementation("androidx.paging:paging-common-ktx:3.1.0")
 }

@@ -1,4 +1,4 @@
-package dev.johnoreilly.mortycomposekmm.ui.characters
+package glureau.rickcompose.ui.characters
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*

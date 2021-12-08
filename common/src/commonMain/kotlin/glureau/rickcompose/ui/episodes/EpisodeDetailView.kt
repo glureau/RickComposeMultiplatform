@@ -1,4 +1,4 @@
-package dev.johnoreilly.mortycomposekmm.ui.episodes
+package glureau.rickcompose.ui.episodes
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
